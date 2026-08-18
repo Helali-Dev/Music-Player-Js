@@ -65,10 +65,14 @@ playPauseButton.addEventListener("click", () => {
 });
 
 // HANDLE MUSIC SOUND
-volumeSlider.addEventListener("input" , () => {
-audio.volume = volumeSlider.value;
-})
+volumeSlider.addEventListener("input", () => {
+  audio.volume = volumeSlider.value;
+});
 
-
+// SEEK TO CURRENT PART OD MUSIC
+seekSlider.addEventListener("input", () => {
+  const newTime = audio.duration * (seekSlider.value / 100);
+  audio.currentTime = newTime;
+});
 // LOAD INITIALY MUSIC
 loadAudio();

@@ -64,5 +64,11 @@ playPauseButton.addEventListener("click", () => {
   }
 });
 
+// HANDLE MUSIC SOUND
+volumeSlider.addEventListener("input" , () => {
+audio.volume = volumeSlider.value;
+})
+
+
 // LOAD INITIALY MUSIC
 loadAudio();

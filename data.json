@@ -1,0 +1,21 @@
+[ 
+    {
+        "singerName":"Saaren",
+        "musicName":"Dard",        
+        "audioSrc":"./assets/4-music.mp3",
+        "coverSrc":"./assets/4-image.jpg"
+    },
+        {
+        "singerName":"Chavoshi",
+        "musicName":"Marize Takht Akhari",        
+        "audioSrc":"./assets/6-music.mp3",
+        "coverSrc":"./assets/6-image.jpg"
+    },
+        {
+        "singerName":"Saaren",
+        "musicName":"Ehtiyaj",        
+        "audioSrc":"./assets/5-music.mp3",
+        "coverSrc":"./assets/5-image.jpg"
+    }
+    
+]

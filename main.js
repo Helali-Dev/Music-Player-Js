@@ -10,28 +10,8 @@ const totalTimeDisplay = document.querySelector(".total-time");
 const singerName = document.querySelector(".singer-name");
 const musicName = document.querySelector(".music-name");
 
-// -------------------------------LIST OT OUR MUSIC INFORMATION
-const playList = [
-  {
-    singerName: "Saaren",
-    musicName: "Dard",
-    audioSrc: "./assets/4-music.mp3",
-    coverSrc: "./assets/4-image.jpg",
-  },
-  {
-    singerName: "Chavoshi",
-    musicName: "Marize Takht Akhari",
-    audioSrc: "./assets/6-music.mp3",
-    coverSrc: "./assets/6-image.jpg",
-  },
-  {
-    singerName: "Saaren",
-    musicName: "Ehtiyaj",
-    audioSrc: "./assets/5-music.mp3",
-    coverSrc: "./assets/5-image.jpg",
-  },
-];
-
+// -------------------------------VARIABLE
+let playList = [];
 let currentIndex = 0;
 let isPlaying = false;
 
@@ -47,6 +27,15 @@ const loadAudio = () => {
     audio.play();
   }
 };
+
+// -------------------------------GET DATA FROM FETCH API
+async function getData() {
+  const response = await fetch("./data.json");
+  const data = await response.json();
+  playList = data;
+  loadAudio();
+}
+getData();
 
 // -------------------------------PLAY AND PAUSE MUSIC
 playPauseButton.addEventListener("click", () => {
@@ -107,7 +96,7 @@ audio.addEventListener("timeupdate", () => {
     seekSlider.value = percentage;
   }
 
-  if ((currentTIME, totalTime)) {
+  if (currentTIME && totalTime) {
     currentTimeDisplay.textContent = formatTime(currentTIME);
     totalTimeDisplay.textContent = formatTime(totalTime);
   }
@@ -126,5 +115,4 @@ audio.addEventListener("ended", () => {
   playPauseButton.firstElementChild.classList.replace("fa-pause", "fa-play");
 });
 
-// -------------------------------LOAD INITIALY MUSIC
-loadAudio();
+
